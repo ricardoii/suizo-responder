@@ -20,6 +20,7 @@ Agregá esta entrada dentro del array `"repositories"` en tu proyecto Laravel:
   }
 ]
 ```
+
 ---
 
 ### 2. Instalar el paquete
