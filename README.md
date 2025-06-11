@@ -153,6 +153,46 @@ return apisuizo()->serverError('Error inesperado');
 
 ---
 
+## 📌 Manejo global de excepciones (opcional)
+
+Si querés que tu API devuelva respuestas JSON uniformes ante errores comunes como rutas no encontradas, permisos o límites de peticiones, podés usar el **registrador de excepciones** incluido en este paquete.
+
+Esto te permite centralizar el manejo de errores en `bootstrap/app.php`, sin repetir lógica en cada controlador.
+
+---
+
+### 🧱 Editar `bootstrap/app.php`
+
+Agregá esta línea al final del archivo, justo después de instanciar `$app`:
+
+```php
+use Ricardo\ApiSuizoService\ExceptionApiRegistrar;
+
+$app->withExceptions(function ($exceptions) {
+    ExceptionApiRegistrar::bind($exceptions);
+});
+```
+
+### ⚙️ ¿Qué hace esto?
+
+Intercepta excepciones comunes y devuelve respuestas formateadas como:
+
+```json
+{
+  "status": 404,
+  "message": "URL no encontrada"
+}
+```
+
+Las excepciones manejadas por defecto son:
+
+* AccessDeniedHttpException → 401 Unauthorized
+* NotFoundHttpException → 404 Not Found
+* TooManyRequestsHttpException → 429 Too Many Requests
+* RouteNotFoundException → 401 Unauthorized
+
+---
+
 ## 🧑 Autor
 
 Ricardo Bazán  
