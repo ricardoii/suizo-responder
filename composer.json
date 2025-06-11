@@ -1,0 +1,43 @@
+{
+    "name": "ricardoii/suizo-responder",
+    "description": "Servicio para formatear respuestas JSON en Laravel",
+    "type": "library",
+    "homepage": "https://github.com/ricardoii/suizo-responder",
+    "license": "MIT",
+    "keywords": [
+        "api",
+        "response",
+        "laravel",
+        "json",
+        "php",
+        "restful",
+        "RESTful API"
+    ],
+    "authors": [
+      {
+        "name": "Ricardo II",
+        "email": "ricardobazan@hardcode.ar",
+        "role": "Creator & Maintainer"
+      }
+    ],
+    "autoload": {
+      "psr-4": {
+        "Ricardo\\ApiSuizoService\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Ricardo\\ApiSuizoService\\Providers\\ApiSuizoServiceProvider"
+        ],
+        "aliases": {
+          "apisuizo": "Ricardo\\ApiSuizoService\\Facades\\ApiSuizo"
+        }
+      }
+    },
+    "require": {
+      "php": "^8.1",
+      "illuminate/support": "^10.0|^11.0|^12.0"
+    }
+  }
+  
