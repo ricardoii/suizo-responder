@@ -25,6 +25,9 @@
         "Ricardo\\ApiSuizoService\\": "src/"
       }
     },
+    "files": [
+      "src/helpers.php"
+    ],
     "extra": {
       "laravel": {
         "providers": [
