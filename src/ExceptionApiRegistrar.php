@@ -2,7 +2,7 @@
 
 namespace Ricardo\ApiSuizoService;
 
-use Illuminate\Foundation\Exceptions\Exceptions;
+use Illuminate\Foundation\Configuration\Exceptions;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
@@ -23,7 +23,7 @@ class ExceptionApiRegistrar
                     return apisuizo()->notFound('URL no encontrada');
                 }
 
-                if ($e instanceof TooManyRequestsHttpHttpException) {
+                if ($e instanceof TooManyRequestsHttpException) {
                     return apisuizo()->errorResponse(429, 'Demasiadas peticiones');
                 }
 
