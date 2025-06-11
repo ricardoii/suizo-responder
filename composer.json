@@ -23,11 +23,11 @@
     "autoload": {
       "psr-4": {
         "Ricardo\\ApiSuizoService\\": "src/"
-      }
-    },
-    "files": [
-      "src/helpers.php"
-    ],
+      },
+      "files": [
+        "src/helpers.php"
+      ]
+    },    
     "extra": {
       "laravel": {
         "providers": [
