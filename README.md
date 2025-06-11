@@ -8,10 +8,26 @@ Este paquete proporciona una forma consistente de estructurar las respuestas JSO
 
 ## 📦 Instalación
 
+### 1. Registrar el repositorio VCS en tu `composer.json`
+
+Agregá esta entrada dentro del array `"repositories"` en tu proyecto Laravel:
+
+```json
+"repositories": [
+  {
+    "type": "vcs",
+    "url": "https://github.com/ricardoii/suizo-responder.git"
+  }
+]
+```
+---
+
+### 2. Instalar el paquete
+
 En consola:
 
 ```bash
-composer require ricardoii/suizo-responder
+composer require ricardo/suizo-responder
 ```
 
 Laravel detectará automáticamente el `ServiceProvider` y registrará el Facade `apisuizo()` gracias al archivo `composer.json` del paquete.
