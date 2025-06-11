@@ -28,7 +28,7 @@ Agregá esta entrada dentro del array `"repositories"` en tu proyecto Laravel:
 En consola:
 
 ```bash
-composer require ricardo/suizo-responder
+composer require ricardoii/suizo-responder
 ```
 
 Laravel detectará automáticamente el `ServiceProvider` y registrará el Facade `apisuizo()` gracias al archivo `composer.json` del paquete.
