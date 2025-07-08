@@ -7,8 +7,9 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
-use Illuminate\Auth\AuthenticationException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
+use Illuminate\Auth\AuthenticationException;
 use Throwable;
 
 class ExceptionApiRegistrar
@@ -34,6 +35,9 @@ class ExceptionApiRegistrar
                 }
                 if ($e instanceof AuthenticationException) {
                     return apisuizo()->unauthorized('Token de autorización requerido o inválido');
+                }
+                if ($e instanceof MethodNotAllowedHttpException) {
+                    return apisuizo()->errorResponse(405, 'Método HTTP no permitido para esta ruta');
                 }
             }
 

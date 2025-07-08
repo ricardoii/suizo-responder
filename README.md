@@ -51,18 +51,6 @@ return apisuizo()->success('Operación realizada con éxito', ['id' => 123]);
 
 ---
 
-### ❌ Respuestas de error
-
-```php
-apisuizo()->error(string $mensaje = null, mixed $errores = null)
-```
-
-```php
-return apisuizo()->error('Error interno del servidor');
-```
-
----
-
 ### 📭 Not Found (404)
 
 ```php
@@ -123,9 +111,21 @@ return apisuizo()->serverError('Error inesperado');
 
 ---
 
+### ❌ Errores personalizados
+
+```php
+apisuizo()->error(int $codigo, string $mensaje = null, mixed $errores = null)
+```
+
+```php
+return apisuizo()->error(405, 'Método HTTP no permitido para esta ruta');
+```
+
+---
+
 ## 🧪 Estructura del JSON resultante
 
-### Éxito:
+### Éxito
 
 ```json
 {
@@ -137,7 +137,7 @@ return apisuizo()->serverError('Error inesperado');
 }
 ```
 
-### Error:
+### Error
 
 ```json
 {
@@ -190,6 +190,8 @@ Las excepciones manejadas por defecto son:
 * NotFoundHttpException → 404 Not Found
 * TooManyRequestsHttpException → 429 Too Many Requests
 * RouteNotFoundException → 401 Unauthorized
+* AuthenticationException → 401 Unauthorized
+* MethodNotAllowedHttpException → 405 Unauthorized MethodNotAllowed
 
 ---
 
@@ -197,7 +199,7 @@ Las excepciones manejadas por defecto son:
 
 Ricardo Bazán  
 Argentina, 2025  
-Repositorio interno: [http://10.40.10.123:3030/ricardo.bazan/suizo-responder](http://10.40.10.123:3030/ricardo.bazan/suizo-responder)
+Repositorio interno: [https://github.com/ricardoii/suizo-responder](https://github.com/ricardoii/suizo-responder)
 
 ---
 
